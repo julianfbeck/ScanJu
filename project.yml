@@ -35,6 +35,9 @@ targets:
     type: bundle.unit-test
     platform: iOS
     sources: [ScanJuTests]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
     dependencies:
       - target: ScanJu
 schemes:
