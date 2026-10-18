@@ -153,6 +153,24 @@ in the local XcodeBuildMCP workspace's `result-bundles` directory.
 
 Future private device screenshots belong in ignored `DeviceEvidence/`.
 
+## Public-source checkout verification — October 18, 2026
+
+- Cloned the committed source into a new directory without local build products,
+  signing files, device defaults, scan evidence, or release archives.
+- Regenerated `ScanJu.xcodeproj` with XcodeGen 2.46.0; generated files matched the
+  committed project. Xcode 27.0 and XcodeBuildMCP 2.7.0 built and launched the app
+  on an iPhone 17 simulator running iOS 27.0.
+- Added automatic Info.plist generation to the ScanJuTests target in `project.yml`
+  so a fresh checkout runs tests without an external build-setting override.
+- The clean-checkout simulator test run passed **22 tests, 0 failed, 0 skipped**.
+  No Apple account credentials were needed and no physical phone was contacted.
+- The device helper's syntax, `--help`, and missing-endpoint error were checked
+  without contacting WebDriverAgent. Its endpoint is supplied by each developer,
+  and a personal app bundle ID can be supplied through `SCANJU_BUNDLE_ID`.
+- Public files were checked for embedded credentials, private device/network
+  details, scan evidence, and broken local Markdown links. Only the generated app
+  icon is included as a binary asset. Release binaries and receipts remain ignored.
+
 ## TestFlight release preparation — October 18, 2026
 
 Release 1.0 (1) archives successfully through XcodeBuildMCP. The final source adds
