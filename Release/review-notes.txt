@@ -1,0 +1,13 @@
+ScanJu is a local 3D capture app. No login, subscription, payment, server, or demo account is required. Allow Camera when prompted.
+
+Hardware: Complete and Surface require rear LiDAR and ARKit scene reconstruction. Please review these modes on a LiDAR-equipped iPhone Pro or iPad Pro. Close-up requires front TrueDepth and ARKit face-tracking world tracking; unsupported modes are disabled in the app. iOS/iPadOS 17 or later is required.
+
+Room test: open the app, leave Complete + Detail selected, tap Start complete scan, move slowly to view the floor/walls/ceiling, then finish. Processing shows a progress bar. Open the saved scan and use Export to open the system share sheet with a ZIP. A short partial scan is enough to test capture, processing, preview, and export; a complete floor plan requires observing the room boundaries.
+
+Close-up test: choose Close-up, point the front screen/TrueDepth camera at a stationary object approximately 20–60 cm away, keep the rear camera clear for world tracking, then move slowly. Finish to process the observed depth surface and textures. ScanJu does not authenticate with Face ID or record face anchors, expressions, or biometric templates. Native depth maps and camera images are saved locally. The 1.5 mm Detail fusion grid is not a claimed hardware accuracy.
+
+Recovery: geometry and source capture data are checkpointed during recording. Reopening after termination offers Finish saved scan; it processes saved data without reopening the camera. Recent uncheckpointed data may be lost. Source files are retained if processing or ZIP packaging fails.
+
+Privacy: question-mark guide > Your data > Privacy and contact. The app makes no developer-operated uploads and has no analytics/advertising SDKs. Camera images may include private surroundings; export is initiated by the user. All formats are generated on device. Capture stops at four minutes or under thermal/memory pressure. The beta can produce gaps, seams, and measurement errors; it is not intended for construction-grade measurements.
+
+Validated on iPhone 16 Pro Max (iOS 27.0.1) and iPhone 13 Pro Max (iOS 26.6.1): rear/TrueDepth capture, textured preview, raw RGB-D exports, share sheet, and forced-termination recovery. 22 automated tests passed. Full-room dimensional accuracy and long moving captures remain beta test goals.

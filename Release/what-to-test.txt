@@ -1,0 +1,9 @@
+Please test on a LiDAR-equipped iPhone/iPad, or use Close-up on a device supporting front TrueDepth capture and world tracking. iOS/iPadOS 17 or later is required.
+
+1. Start Complete + Detail and allow camera access. Slowly scan the floor, walls, corners, and ceiling. Check whether the filled mesh and captured/unscanned indicator make coverage clear.
+2. Finish and check the processing progress, textured model, and any room measurements. Try Surface for a partial area such as a ceiling.
+3. Try Close-up on a stationary object at 20–60 cm. Face the screen side toward it and keep the rear camera unobstructed. The 1.5 mm Detail fusion grid is a sampling setting, not a sensor accuracy guarantee.
+4. Export through AirDrop or Save to Files. Check the OBJ/MTL/JPEG, USDZ, PLY, and available floor-plan files in your own 3D tools.
+5. For recovery, close ScanJu during an unimportant test capture, reopen it, and choose Finish saved scan. Very recent data may not have reached a checkpoint.
+
+Please report device model, iOS version, mode, scan duration, processing stage, and any crashes or missing textures through TestFlight. Attach captures only if you choose to share their contents. Capture has a four-minute/thermal safety stop, and ZIP export currently supports packages below the classic ZIP size limits. Test results cover short stationary views and forced-termination recovery; full-room dimensional accuracy and long moving captures still need broader testing.

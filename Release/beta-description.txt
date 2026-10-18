@@ -1,0 +1,9 @@
+Scan rooms and objects in 3D with ScanJu. Capture geometry, color points, camera textures, and available floor plans, then process and export on your device.
+
+Complete + Detail is the default. Use a LiDAR-equipped iPhone or iPad for rooms and surfaces. Close-up uses the front TrueDepth camera for small, stationary objects on supported devices; keep the screen side facing the object about 20–60 cm away.
+
+See captured surfaces in the live mesh overlay, inspect your result, and export a ZIP containing interoperable models and source capture data. Exports can include textured OBJ and USDZ, PLY points, raw RGB-D data and calibration, and available SVG/DXF room plans.
+
+Interrupted captures save checkpoints: reopen ScanJu and choose Finish saved scan to process saved data without recording again.
+
+This is an early beta. Models may contain holes, texture seams, and tracking errors. Room dimensions are estimates. Capture stops after four minutes or when the device needs to cool down. Scans are stored locally; export important scans before deleting the app or its data.

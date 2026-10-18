@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06BBEFE4A228F39B069D835D /* ScanRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B330168267F055CCBCDC7997 /* ScanRecovery.swift */; };
+		156B800E8E1F9E04AB48B1D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794B7400F631B701FFA07CB0 /* Assets.xcassets */; };
+		4011CEA3807D147DD197D86C /* DepthSurfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3371443D1090306A00A68E3 /* DepthSurfaceBuilder.swift */; };
+		4FFE36FFA0788DF4BE456FDF /* RecoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A0DDC65E676DE540D2C3B7 /* RecoveryView.swift */; };
+		541DD4E12F97110B4AE5661E /* CoverageOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DFB996AD7894AE0974493 /* CoverageOverlay.swift */; };
+		557693103D6558F7F0DCE8AC /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D450C0A845C7F74EB28AEBE /* ScanData.swift */; };
+		6007D127667534D099B5AD54 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BAF4268A20AACBDAA28BF9CF /* PrivacyInfo.xcprivacy */; };
+		72C478A8A964A81068675E6F /* DepthCalibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C06209EB16469613F7B154E /* DepthCalibration.swift */; };
+		7620C3AA2555EBDCF7FD608A /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C838D0389C31868B50581AB /* CaptureEngine.swift */; };
+		7B416ED3101B1FD3B00FBD2B /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992A052BA75B9C2A66CDEB62 /* LibraryView.swift */; };
+		8E3DDE415BC69889F77A11DD /* MeshPreviewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C84968BB93F5725822CC92 /* MeshPreviewLoader.swift */; };
+		8F157852406CAE2CD90C7865 /* ScanJuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682819243A1EC48E6CC4FBA6 /* ScanJuApp.swift */; };
+		C5B7DDF1D9810F933AD44A48 /* ScanProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA82F52C7C91A1AE0B0E74E4 /* ScanProcessor.swift */; };
+		C81FBF6A978E078D1635D50D /* ZipArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84193B10E2947E78FC057A5E /* ZipArchive.swift */; };
+		CC3F8192D6A6A7D3064DA28B /* ScanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A51162A8F2C609FE7BB15A4 /* ScanDetailView.swift */; };
+		CDB9331E6D9CAE526BB12C2D /* ScanJuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E69E05537821089B4D70E8D /* ScanJuTests.swift */; };
+		D5124627E88B7D9575D9B42E /* USDMeshWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA77EAA55AEA8CF00B5A214 /* USDMeshWriter.swift */; };
+		E514E56A7E1F1D6E8DD4C613 /* PointCloudStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64613FB05596F0036AB15D /* PointCloudStore.swift */; };
+		F547DB7A7B5196D1CCF92EC8 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A1113F78E62C70EF138519 /* PrivacyView.swift */; };
+		FD992CE7806A2E13E15A7183 /* CaptureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8988DB9DA98A794D7C74C /* CaptureScreen.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34A872BAF3A96D95E54E982E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7DCE879D1A2DCA184FF6C7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5AE5C1354F03C1E301D40D7;
+			remoteInfo = ScanJu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D450C0A845C7F74EB28AEBE /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		30C84968BB93F5725822CC92 /* MeshPreviewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshPreviewLoader.swift; sourceTree = "<group>"; };
+		44A0DDC65E676DE540D2C3B7 /* RecoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryView.swift; sourceTree = "<group>"; };
+		4C838D0389C31868B50581AB /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
+		51A1113F78E62C70EF138519 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		682819243A1EC48E6CC4FBA6 /* ScanJuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanJuApp.swift; sourceTree = "<group>"; };
+		6E69E05537821089B4D70E8D /* ScanJuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanJuTests.swift; sourceTree = "<group>"; };
+		739CA3542891678E20353C0B /* ScanJuTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ScanJuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		794B7400F631B701FFA07CB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E7C525644DA1340CF637A73 /* ScanJu.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ScanJu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A8988DB9DA98A794D7C74C /* CaptureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureScreen.swift; sourceTree = "<group>"; };
+		84193B10E2947E78FC057A5E /* ZipArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipArchive.swift; sourceTree = "<group>"; };
+		8A51162A8F2C609FE7BB15A4 /* ScanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDetailView.swift; sourceTree = "<group>"; };
+		8C06209EB16469613F7B154E /* DepthCalibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthCalibration.swift; sourceTree = "<group>"; };
+		992A052BA75B9C2A66CDEB62 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		A56DFB996AD7894AE0974493 /* CoverageOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageOverlay.swift; sourceTree = "<group>"; };
+		B330168267F055CCBCDC7997 /* ScanRecovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanRecovery.swift; sourceTree = "<group>"; };
+		BA82F52C7C91A1AE0B0E74E4 /* ScanProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanProcessor.swift; sourceTree = "<group>"; };
+		BAF4268A20AACBDAA28BF9CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		BF64613FB05596F0036AB15D /* PointCloudStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCloudStore.swift; sourceTree = "<group>"; };
+		EBA77EAA55AEA8CF00B5A214 /* USDMeshWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USDMeshWriter.swift; sourceTree = "<group>"; };
+		F3371443D1090306A00A68E3 /* DepthSurfaceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthSurfaceBuilder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		01882B815897AA37A13FCC5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E7C525644DA1340CF637A73 /* ScanJu.app */,
+				739CA3542891678E20353C0B /* ScanJuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1285CBFAD7D1D10833294B36 /* ScanJuTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E69E05537821089B4D70E8D /* ScanJuTests.swift */,
+			);
+			path = ScanJuTests;
+			sourceTree = "<group>";
+		};
+		AC6B08976A9DA922614837CE = {
+			isa = PBXGroup;
+			children = (
+				C7D6801FAB23BC6BF831B16B /* ScanJu */,
+				1285CBFAD7D1D10833294B36 /* ScanJuTests */,
+				01882B815897AA37A13FCC5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7D6801FAB23BC6BF831B16B /* ScanJu */ = {
+			isa = PBXGroup;
+			children = (
+				794B7400F631B701FFA07CB0 /* Assets.xcassets */,
+				4C838D0389C31868B50581AB /* CaptureEngine.swift */,
+				81A8988DB9DA98A794D7C74C /* CaptureScreen.swift */,
+				A56DFB996AD7894AE0974493 /* CoverageOverlay.swift */,
+				8C06209EB16469613F7B154E /* DepthCalibration.swift */,
+				F3371443D1090306A00A68E3 /* DepthSurfaceBuilder.swift */,
+				992A052BA75B9C2A66CDEB62 /* LibraryView.swift */,
+				30C84968BB93F5725822CC92 /* MeshPreviewLoader.swift */,
+				BF64613FB05596F0036AB15D /* PointCloudStore.swift */,
+				BAF4268A20AACBDAA28BF9CF /* PrivacyInfo.xcprivacy */,
+				51A1113F78E62C70EF138519 /* PrivacyView.swift */,
+				44A0DDC65E676DE540D2C3B7 /* RecoveryView.swift */,
+				2D450C0A845C7F74EB28AEBE /* ScanData.swift */,
+				8A51162A8F2C609FE7BB15A4 /* ScanDetailView.swift */,
+				682819243A1EC48E6CC4FBA6 /* ScanJuApp.swift */,
+				BA82F52C7C91A1AE0B0E74E4 /* ScanProcessor.swift */,
+				B330168267F055CCBCDC7997 /* ScanRecovery.swift */,
+				EBA77EAA55AEA8CF00B5A214 /* USDMeshWriter.swift */,
+				84193B10E2947E78FC057A5E /* ZipArchive.swift */,
+			);
+			path = ScanJu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5AE5C1354F03C1E301D40D7 /* ScanJu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F073C90666632ED14DAD1395 /* Build configuration list for PBXNativeTarget "ScanJu" */;
+			buildPhases = (
+				9FAADCD55DBC895670D94737 /* Sources */,
+				58A47F2B4B2CE5D96BC9738D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScanJu;
+			packageProductDependencies = (
+			);
+			productName = ScanJu;
+			productReference = 7E7C525644DA1340CF637A73 /* ScanJu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B415259E56904D63EA97B2B0 /* ScanJuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DDFE1751483BF3F81F8BC8F /* Build configuration list for PBXNativeTarget "ScanJuTests" */;
+			buildPhases = (
+				30F835FBF9272D484573872E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B2E3DC2FF145D254D10BAE3 /* PBXTargetDependency */,
+			);
+			name = ScanJuTests;
+			packageProductDependencies = (
+			);
+			productName = ScanJuTests;
+			productReference = 739CA3542891678E20353C0B /* ScanJuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7DCE879D1A2DCA184FF6C7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A5AE5C1354F03C1E301D40D7 = {
+						DevelopmentTeam = VB9VC9U9AV;
+						ProvisioningStyle = Automatic;
+					};
+					B415259E56904D63EA97B2B0 = {
+						DevelopmentTeam = VB9VC9U9AV;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 92DA8BE1C754C4F18C688E31 /* Build configuration list for PBXProject "ScanJu" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = AC6B08976A9DA922614837CE;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 01882B815897AA37A13FCC5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5AE5C1354F03C1E301D40D7 /* ScanJu */,
+				B415259E56904D63EA97B2B0 /* ScanJuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58A47F2B4B2CE5D96BC9738D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				156B800E8E1F9E04AB48B1D5 /* Assets.xcassets in Resources */,
+				6007D127667534D099B5AD54 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30F835FBF9272D484573872E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDB9331E6D9CAE526BB12C2D /* ScanJuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FAADCD55DBC895670D94737 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7620C3AA2555EBDCF7FD608A /* CaptureEngine.swift in Sources */,
+				FD992CE7806A2E13E15A7183 /* CaptureScreen.swift in Sources */,
+				541DD4E12F97110B4AE5661E /* CoverageOverlay.swift in Sources */,
+				72C478A8A964A81068675E6F /* DepthCalibration.swift in Sources */,
+				4011CEA3807D147DD197D86C /* DepthSurfaceBuilder.swift in Sources */,
+				7B416ED3101B1FD3B00FBD2B /* LibraryView.swift in Sources */,
+				8E3DDE415BC69889F77A11DD /* MeshPreviewLoader.swift in Sources */,
+				E514E56A7E1F1D6E8DD4C613 /* PointCloudStore.swift in Sources */,
+				F547DB7A7B5196D1CCF92EC8 /* PrivacyView.swift in Sources */,
+				4FFE36FFA0788DF4BE456FDF /* RecoveryView.swift in Sources */,
+				557693103D6558F7F0DCE8AC /* ScanData.swift in Sources */,
+				CC3F8192D6A6A7D3064DA28B /* ScanDetailView.swift in Sources */,
+				8F157852406CAE2CD90C7865 /* ScanJuApp.swift in Sources */,
+				C5B7DDF1D9810F933AD44A48 /* ScanProcessor.swift in Sources */,
+				06BBEFE4A228F39B069D835D /* ScanRecovery.swift in Sources */,
+				D5124627E88B7D9575D9B42E /* USDMeshWriter.swift in Sources */,
+				C81FBF6A978E078D1635D50D /* ZipArchive.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B2E3DC2FF145D254D10BAE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5AE5C1354F03C1E301D40D7 /* ScanJu */;
+			targetProxy = 34A872BAF3A96D95E54E982E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3E712D2E025D5C6211E93B93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ScanJu;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ScanJu uses the cameras, LiDAR, and front TrueDepth sensor to capture room or object geometry, color, and textures. Scans stay on this device until you export them.";
+				INFOPLIST_KEY_UIFileSharingEnabled = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.julianbeck.ScanJu;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F681C9E234B78A618AE3756 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ScanJu;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ScanJu uses the cameras, LiDAR, and front TrueDepth sensor to capture room or object geometry, color, and textures. Scans stay on this device until you export them.";
+				INFOPLIST_KEY_UIFileSharingEnabled = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.julianbeck.ScanJu;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A0B9402095E469AD08F9A9B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.julianbeck.ScanJuTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanJu.app/ScanJu";
+			};
+			name = Release;
+		};
+		CFD98C42B0A3F9C7245E259D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VB9VC9U9AV;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		F5DEDB4FD0265FAC30E2B38D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.julianbeck.ScanJuTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanJu.app/ScanJu";
+			};
+			name = Debug;
+		};
+		F79A8511850E36DE622798CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VB9VC9U9AV;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DDFE1751483BF3F81F8BC8F /* Build configuration list for PBXNativeTarget "ScanJuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5DEDB4FD0265FAC30E2B38D /* Debug */,
+				A0B9402095E469AD08F9A9B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		92DA8BE1C754C4F18C688E31 /* Build configuration list for PBXProject "ScanJu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F79A8511850E36DE622798CA /* Debug */,
+				CFD98C42B0A3F9C7245E259D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F073C90666632ED14DAD1395 /* Build configuration list for PBXNativeTarget "ScanJu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E712D2E025D5C6211E93B93 /* Debug */,
+				3F681C9E234B78A618AE3756 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7DCE879D1A2DCA184FF6C7A /* Project object */;
+}
