@@ -1,0 +1,4 @@
+interface:
+  display_name: "ScanJu Room Reconstruction"
+  short_description: "Turn ScanJu captures into editable Blender rooms"
+  default_prompt: "Use $scanju-room-reconstruction to rebuild my ScanJu export as an editable Blender room with clean and photo-overlay scenes, a floor plan, and GLB exports."

@@ -189,3 +189,31 @@ Artifacts and validation receipts are retained privately in the maintainer's loc
 in `Release/README.md`. This release preparation does not replace the phone
 installations or delete phone scans. Only the superseded prototype archive from
 this release-preparation session was removed from the Mac.
+
+## Room-reconstruction skill — October 19, 2026
+
+The reusable workflow in `skills/scanju-room-reconstruction/` was distilled from
+the agent session behind the room renders in the README, including the later
+photo audit, opening/recess corrections, wall alignment, and viewport fixes.
+It contains generic guidance and synthetic test data; the original capture,
+camera photographs, room coordinates, and Blender project are not included.
+
+- Skill Creator's frontmatter/package validator passed. The skills.sh CLI 1.7.2
+  discovered the skill and installed it into a temporary project for Codex with
+  both references and the runnable helper present.
+- The standard-library inspector passed **12 tests** covering directory/ZIP
+  equivalence, a wrapped export root, partial inputs, missing/truncated RGB-D,
+  orphaned openings, TrueDepth mask metadata, invalid matrices, unsafe paths,
+  duplicate archive members, symlinks, multiple capture roots, bounded metadata
+  reads, and protection against overwriting an existing report.
+- Inspection of the original export ZIP and its extracted copy produced the same
+  metadata report with no missing RGB-D files or size warnings. No scan media was
+  modified or added to Git.
+- These checks validate packaging and metadata inspection. They do not constitute
+  a new end-to-end Blender reconstruction or prove sensor/measurement accuracy.
+
+Run the helper tests from the repository root with Python 3.10+:
+
+```sh
+python3 -m unittest discover -s skills/scanju-room-reconstruction/scripts -v
+```

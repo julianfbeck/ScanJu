@@ -60,6 +60,13 @@ report a simulated test as proof of real sensor behavior or measurement accuracy
 Swift source paths in the table are relative to `ScanJu/`. Keep changes focused
 and follow the current Swift/SwiftUI patterns before adding an abstraction or dependency.
 
+The distributable room-modeling skill is in `skills/scanju-room-reconstruction/`.
+Its `SKILL.md` routes to export/calibration and Blender delivery references; the
+Python inspector and its tests use only the standard library. Run
+`python3 -m unittest discover -s skills/scanju-room-reconstruction/scripts -v`
+when changing the helper. Keep the workflow generic; private capture coordinates
+and one-off apartment scripts do not belong in the published skill.
+
 ## Capture and storage contracts
 
 - Complete + Detail defaults to geometry, color points, camera textures, raw RGB-D,

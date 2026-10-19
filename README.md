@@ -22,6 +22,44 @@ shows the reconstruction made after export.
 
 ## Recreate a scanned room with an agent
 
+### Install the reconstruction skill
+
+The [ScanJu room-reconstruction skill](skills/scanju-room-reconstruction/SKILL.md)
+packages the workflow used for the room above: clean editable architecture,
+photo-checked windows and recessed furniture, a matching texture-overlay scene,
+floor-plan renders, and portable Blender/GLB delivery.
+
+Install it from this repository using [skills.sh](https://skills.sh/docs):
+
+```sh
+npx skills add julianfbeck/ScanJu --skill scanju-room-reconstruction
+```
+
+Choose your agent in the installer. For a project-local Codex install, use
+`--agent codex`; add `--global` if you want it available across projects. You need
+Node.js/npm for the installer, Blender with Python for modeling, and Python 3.10+
+for the included export inspector. An available Blender MCP connection lets the
+agent work interactively; Blender Python scripts can also run locally in the
+background. The skill does not set up the MCP connection for you.
+
+Give the agent your **own** ScanJu Complete export and an output directory, then
+invoke it (Codex example):
+
+```text
+Use $scanju-room-reconstruction on /path/to/ScanJu.zip.
+Rebuild my room like the README example, using Blender MCP if available.
+Save the clean and photo-overlay scenes, packed room.blend, GLBs,
+floor plan, cutaway renders, and verification report in /path/to/output.
+```
+
+The skill includes coordinate/calibration guidance, the photo-audit lessons from
+the original reconstruction, and a metadata inspector that accepts ZIPs or
+extracted captures without loading the large media files. It uses your scan's
+layout; the example apartment's private source data is not included. Modeling and
+photo review are agent-assisted, so results depend on capture coverage and tools.
+
+### Use the standalone prompt
+
 Scan in **Complete** mode, export the ZIP, and give the export to your agent with
 the prompt below. The SVG/DXF plan records detected walls and openings; the mesh
 and camera textures provide the observed surfaces and appearance. A complete room
