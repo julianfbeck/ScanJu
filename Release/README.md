@@ -1,6 +1,6 @@
 # ScanJu TestFlight — 1.0 (1)
 
-Submission snapshot: October 18, 2026. The official app uses bundle ID
+Distribution status checked: October 19, 2026. The official app uses bundle ID
 `com.julianbeck.ScanJu` and requires iOS/iPadOS 17.0. Complete/Surface require
 LiDAR; Close-up requires front TrueDepth plus ARKit world tracking. Unsupported
 modes are disabled.
@@ -9,9 +9,9 @@ modes are disabled.
 
 - [Public TestFlight link](https://testflight.apple.com/join/jDMD2rmb).
 - Version 1.0 (1) uploaded, processed successfully, and assigned to Public Beta.
-- Submitted for Beta App Review. At submission Apple reported
-  `WAITING_FOR_REVIEW` / `WAITING_FOR_BETA_REVIEW`; the public link offers the
-  build after external beta approval. This is a dated record, not a live status.
+- Apple Beta App Review is `APPROVED`; external distribution is `BETA_APPROVED`.
+  The public link displays **View in TestFlight** and accepts testers.
+  This is a dated record, not a live status.
 - Feedback is enabled. Mac and Apple Vision availability are disabled because
   capture requires physical iPhone/iPad depth-camera hardware.
 

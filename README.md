@@ -3,6 +3,45 @@
 An iOS 17+ LiDAR room, surface, and front TrueDepth close-up scanner. Built with SwiftUI, ARKit, RoomPlan,
 SceneKit, and Core Image, without third-party dependencies or a backend.
 
+**The public beta is ready.** [Install ScanJu with TestFlight](https://testflight.apple.com/join/jDMD2rmb)
+on your iPhone or iPad. Version 1.0 (build 1) is approved for public beta testing.
+
+## Recreate a scanned room with an agent
+
+Scan in **Complete** mode, export the ZIP, and give the export to your agent with
+the prompt below. The SVG/DXF plan records detected walls and openings; the mesh
+and camera textures provide the observed surfaces and appearance. A complete room
+needs views of its boundaries. Measurements are estimates, and missing areas need
+to stay explicit.
+
+<details>
+<summary>Copy the room-recreation prompt</summary>
+
+```text
+Recreate my scanned room as an editable Blender scene using the ScanJu export
+I provide. Inspect the export's README and available files before modeling.
+
+Use Room.json and FloorPlan.svg/FloorPlan.dxf for detected walls, doors, windows,
+and openings. Use Mesh.obj with Mesh.mtl and frames/*.jpg, or TexturedMesh.usdz,
+as the reference for observed surfaces and textures. Preserve the source scale
+in meters and account for ARKit's right-handed, Y-up coordinates when importing
+into Blender. Do not mirror the room or change its proportions.
+
+Create separate editable objects for the detected room elements. Preserve the
+locations and widths of openings. Keep unobserved surfaces neutral and identify
+gaps, conflicting measurements, or assumptions instead of inventing dimensions,
+hidden rooms, or furniture. If I provide only a 2D floor plan, ask for missing
+heights before making a full 3D room.
+
+Deliver room.blend, room.glb, a top-down floor-plan PNG, and a three-quarter
+preview. Check the model's scale, wall lengths, and opening positions against
+the supplied plan and report discrepancies and any unverified measurements.
+Keep the original export unchanged and keep camera images and raw scan data
+local unless I explicitly request publication.
+```
+
+</details>
+
 ## Install and run locally
 
 Use a Mac with full Xcode 16 or later, the iOS SDK, and an installed iOS 17+
@@ -201,9 +240,9 @@ signing material, and generated archives out of Git.
 
 ## TestFlight
 
-[Join the public beta](https://testflight.apple.com/join/jDMD2rmb) when Apple's
-external beta approval makes the build available. See
-[release preparation](Release/README.md) for the dated submission status and beta
+[Install the public beta](https://testflight.apple.com/join/jDMD2rmb).
+Version 1.0 (build 1) is approved and available to external testers. See
+[release preparation](Release/README.md) for the dated distribution status and beta
 copy. Signed archives, IPA files, crash symbols, and account-specific validation
 receipts are retained privately by the maintainer and excluded from this repository.
 The app includes privacy information in Scanning guide → Your data → Privacy and
