@@ -6,6 +6,20 @@ SceneKit, and Core Image, without third-party dependencies or a backend.
 **The public beta is ready.** [Install ScanJu with TestFlight](https://testflight.apple.com/join/jDMD2rmb)
 on your iPhone or iPad. Version 1.0 (build 1) is approved for public beta testing.
 
+![A real room captured with ScanJu and reconstructed in Blender, showing the bedroom, bathroom, kitchen, and living area](docs/images/room-reconstruction.png)
+
+A real **Complete** scan, rebuilt and refined by an agent in Blender using the
+exported room geometry and camera images. The clean model includes simplified
+furniture, photo-guided corrections, and some estimated dimensions. This render
+shows the reconstruction made after export.
+
+<details>
+<summary>View the top-down room plan</summary>
+
+![Top-down floor plan of the same ScanJu room reconstruction](docs/images/room-floor-plan.png)
+
+</details>
+
 ## Recreate a scanned room with an agent
 
 Scan in **Complete** mode, export the ZIP, and give the export to your agent with
@@ -18,8 +32,9 @@ to stay explicit.
 <summary>Copy the room-recreation prompt</summary>
 
 ```text
-Recreate my scanned room as an editable Blender scene using the ScanJu export
-I provide. Inspect the export's README and available files before modeling.
+Recreate my scanned room as an editable Blender project, in the style of the
+ScanJu README example. Use Blender MCP if available. Inspect the ScanJu export
+I provide and read its README before modeling.
 
 Use Room.json and FloorPlan.svg/FloorPlan.dxf for detected walls, doors, windows,
 and openings. Use Mesh.obj with Mesh.mtl and frames/*.jpg, or TexturedMesh.usdz,
@@ -27,15 +42,25 @@ as the reference for observed surfaces and textures. Preserve the source scale
 in meters and account for ARKit's right-handed, Y-up coordinates when importing
 into Blender. Do not mirror the room or change its proportions.
 
-Create separate editable objects for the detected room elements. Preserve the
-locations and widths of openings. Keep unobserved surfaces neutral and identify
-gaps, conflicting measurements, or assumptions instead of inventing dimensions,
-hidden rooms, or furniture. If I provide only a 2D floor plan, ask for missing
-heights before making a full 3D room.
+Rebuild clean walls with real door and window openings, separate frames and
+glazing, and simplified furniture based on the detected object boxes and photos.
+Check ambiguous detections against calibrated camera views. Keep the measured
+layout as the starting point; record any photo-guided correction, straightening,
+or inferred furniture depth. Preserve opening positions and widths. Omit ceilings,
+curtains, and temporary clutter so the room is readable as a cutaway model.
 
-Deliver room.blend, room.glb, a top-down floor-plan PNG, and a three-quarter
-preview. Check the model's scale, wall lengths, and opening positions against
-the supplied plan and report discrepancies and any unverified measurements.
+Create two scenes sharing the same corrected geometry: a clean model with simple
+materials, and a photo-texture overlay for comparison. Keep furniture and room
+elements separately editable. Preserve the original wall segments in a hidden
+reference collection. Keep unseen surfaces neutral and identify gaps, conflicting
+measurements, and assumptions. Do not invent hidden rooms or unobserved details.
+If I provide only a 2D plan, ask for missing heights before making a full 3D room.
+
+Deliver room.blend with packed textures, a GLB for each scene, a top-down
+floor-plan PNG, and a softly lit three-quarter cutaway render of the clean scene.
+Check scale, wall lengths, opening positions, and wall intersections against the
+source and report discrepancies and unverified measurements. Keep the editing
+viewport responsive; render previews separately if needed.
 Keep the original export unchanged and keep camera images and raw scan data
 local unless I explicitly request publication.
 ```

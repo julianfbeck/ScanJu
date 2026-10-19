@@ -104,6 +104,9 @@ room meshes, raw depth, scan exports, device identifiers, local network endpoint
 signing credentials, provisioning profiles, keychains, or account-specific receipts.
 Review staged filenames and diffs before pushing. `.gitignore` protects build,
 release, signing, and evidence output; do not force-add those artifacts.
+The owner approved the two reconstructed-room renders in `docs/images/` for the
+public README. Their original scan, camera images, and Blender project remain
+private; the renders do not authorize publishing the underlying capture.
 
 ## Distribution
 
