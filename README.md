@@ -4,7 +4,7 @@ An iOS 17+ LiDAR room, surface, and front TrueDepth close-up scanner. Built with
 SceneKit, and Core Image, without third-party dependencies or a backend.
 
 **The public beta is ready.** [Install ScanJu with TestFlight](https://testflight.apple.com/join/jDMD2rmb)
-on your iPhone or iPad. Version 1.0 (build 1) is approved for public beta testing.
+on your iPhone or iPad. Version 1.0 (build 2) is approved for public beta testing.
 
 ![A real room captured with ScanJu and reconstructed in Blender, showing the bedroom, bathroom, kitchen, and living area](docs/images/room-reconstruction.png)
 
@@ -310,7 +310,8 @@ signing material, and generated archives out of Git.
 ## TestFlight
 
 [Install the public beta](https://testflight.apple.com/join/jDMD2rmb).
-Version 1.0 (build 1) is approved and available to external testers. See
+Version 1.0 (build 2) is approved and available to external testers and the
+Internal Beta group. Capture has no fixed duration limit. See
 [release preparation](Release/README.md) for the dated distribution status and beta
 copy. Signed archives, IPA files, crash symbols, and account-specific validation
 receipts are retained privately by the maintainer and excluded from this repository.
