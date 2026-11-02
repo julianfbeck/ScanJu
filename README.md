@@ -239,8 +239,12 @@ existing scans. The Delete all scans action permanently removes that app's data.
 - Native, synchronized camera JPEGs, scene-depth maps, confidence maps, intrinsics,
   and camera poses are retained. Points use high-confidence depth and stable tracking.
 - Points are fused into persistent voxel tiles with a bounded RAM cache. There is
-  no fixed point-count or camera-keyframe ceiling. Capture stops after four minutes,
-  on critical heat, or after a memory warning. Move around for complete coverage.
+  no fixed duration, point-count, or camera-keyframe ceiling. Memory warnings flush
+  caches without ending capture. ScanJu stops near full storage (150 MB reserve
+  for checkpoints); starting a scan requires 600 MB free. iOS can still interrupt
+  the camera or terminate an app under resource pressure. Move around for coverage.
+  If RoomPlan ends independently, detailed mesh and RGB-D capture continue with
+  the last floor plan retained.
 - Mesh anchors are saved atomically as they change; point tiles and capture metadata
   are checkpointed every two seconds. Each camera/depth/confidence set is saved
   with calibration during capture. **Finish saved scan** restores an interrupted
@@ -294,8 +298,10 @@ capture requires hardware.
 Tests also import textured USDZ back into SceneKit and verify ZIP entry alignment.
 Recovery tests restore saved geometry after interruption, repair an unfinished ZIP,
 check monotonic progress and atomic replacement, and export/reopen 1,048,577 points.
-ZIP archives use the classic 4 GB format limit; individual source files stay in Files
-when packaging cannot complete. Available storage and device resources still apply.
+Complete ZIP exports switch to ZIP64 for large files, offsets, or entry counts.
+USDZ retains its format limits; OBJ/MTL, PLY, camera data, and the complete ZIP
+remain available if USDZ cannot be generated. Source files stay in Files if
+processing or packaging runs out of storage.
 
 See [TESTING.md](TESTING.md) for recorded automated and real-device results and
 the remaining hardware validation limits. Keep room captures, device screenshots,

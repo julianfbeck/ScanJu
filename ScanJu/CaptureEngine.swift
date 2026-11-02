@@ -40,6 +40,7 @@ final class CaptureEngine: NSObject, ObservableObject, ARSessionDelegate, RoomCa
     private var checkpoint: CaptureCheckpoint?
     private var lastCheckpoint = Date.distantPast
     private var lastRoomCheckpoint = Date.distantPast
+    private var lastStorageCheck = Date.distantPast
     private var memoryObserver: NSObjectProtocol?
     private var chunks: [UUID: MeshChunk] = [:]
     private var samples: [CameraSample] = []
@@ -93,8 +94,12 @@ final class CaptureEngine: NSObject, ObservableObject, ARSessionDelegate, RoomCa
         memoryObserver = NotificationCenter.default.addObserver(forName: UIApplication.didReceiveMemoryWarningNotification,
             object: nil, queue: .main) { [weak self] _ in
                 guard let self, self.phase == .capturing else { return }
-                self.notices.append("Capture stopped to preserve the scan when device memory became low.")
-                self.stop()
+                self.work.async {
+                    do {
+                        try self.saveCheckpoint(releaseCache: true)
+                        self.context.clearCaches()
+                    } catch { self.stopForStorageError(error) }
+                }
             }
         if mode == .room {
             roomSession = RoomCaptureSession(arSession: session)
@@ -175,15 +180,30 @@ final class CaptureEngine: NSObject, ObservableObject, ARSessionDelegate, RoomCa
         }
         phase = .capturing
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            guard let self else { return }
-            self.elapsed = Date().timeIntervalSince(self.started)
-            if self.elapsed >= 240 {
-                self.notices.append("Capture stopped at the four-minute safety limit.")
-                self.stop()
-            } else if ProcessInfo.processInfo.thermalState == .critical {
-                self.notices.append("Capture stopped because the device became hot.")
-                self.stop()
-            }
+            self?.updateCaptureStatus()
+        }
+    }
+
+    // No elapsed-time or thermal cutoff. Keep a small disk reserve so the last
+    // checkpoint can be written before a full volume starts rejecting writes.
+    func updateCaptureStatus(at now: Date = Date()) {
+        guard phase == .capturing else { return }
+        elapsed = now.timeIntervalSince(started)
+        guard now.timeIntervalSince(lastStorageCheck) >= 5 else { return }
+        lastStorageCheck = now
+        work.async {
+            guard self.acceptingFrames else { return }
+            do {
+                let capacity = try self.directory.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+                    .volumeAvailableCapacityForImportantUsage
+                if let capacity { try Self.checkRemainingStorage(capacity) }
+            } catch { self.stopForStorageError(error) }
+        }
+    }
+
+    static func checkRemainingStorage(_ bytes: Int64) throws {
+        guard bytes > 150_000_000 else {
+            throw ScanFailure.message("Device storage is almost full. Free space before starting another scan. Saved capture data is retained.")
         }
     }
 
@@ -244,7 +264,7 @@ final class CaptureEngine: NSObject, ObservableObject, ARSessionDelegate, RoomCa
             let mesh = Array(chunks.values)
             let cloud = pointCloud
             let frames = samples
-            let additionalNotes = frameWriteError.map { ["Some camera frames could not be saved: \($0)"] } ?? []
+            let additionalNotes = frameWriteError.map { ["Storage: \($0)"] } ?? []
             chunks.removeAll()
             DispatchQueue.main.async {
                 self.liveNodes.values.forEach { $0.removeFromParentNode() }
@@ -370,8 +390,8 @@ final class CaptureEngine: NSObject, ObservableObject, ARSessionDelegate, RoomCa
         } } catch { stopForStorageError(error) }
     }
 
-    private func saveCheckpoint() throws {
-        try pointCloud?.flush()
+    private func saveCheckpoint(releaseCache: Bool = false) throws {
+        try pointCloud?.flush(releaseCache: releaseCache)
         try checkpoint?.saveMetadata(duration: Date().timeIntervalSince(started))
         lastCheckpoint = Date()
         let saved = lastCheckpoint
@@ -598,6 +618,16 @@ final class CaptureEngine: NSObject, ObservableObject, ARSessionDelegate, RoomCa
     func captureSession(_ session: RoomCaptureSession, didEndWith data: CapturedRoomData, error: Error?) {
         DispatchQueue.main.async {
             guard self.phase == .capturing || self.phase == .processing, !self.finalizing else { return }
+            // RoomPlan can end independently of the user's detailed AR capture.
+            // Retain the latest floor-plan checkpoint and continue mesh/RGB-D in
+            // the same coordinate system, without resetting tracking or anchors.
+            if !self.stopRequested, self.phase == .capturing {
+                self.roomSession?.delegate = nil
+                self.roomSession = nil
+                self.notices.append("RoomPlan ended before detailed capture. The latest floor plan was retained; mesh, points and camera capture continued.")
+                self.restoreDepthConfiguration()
+                return
+            }
             self.phase = .processing
             self.timer?.invalidate()
             self.timer = nil

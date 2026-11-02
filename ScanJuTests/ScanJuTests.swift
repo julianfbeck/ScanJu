@@ -1,10 +1,55 @@
 import XCTest
+import Combine
 import simd
 import SceneKit
 import UIKit
 @testable import ScanJu
 
 final class ScanJuTests: XCTestCase {
+    @MainActor
+    func testCaptureContinuesPastFourMinutesAndMemoryWarning() async {
+        let engine = CaptureEngine(mode: .surface, quality: .detail)
+        engine.phase = .capturing
+        engine.updateCaptureStatus(at: Date().addingTimeInterval(86_400))
+        XCTAssertGreaterThanOrEqual(engine.elapsed, 86_399)
+        XCTAssertEqual(engine.phase, .capturing)
+
+        let checkpointed = expectation(description: "Memory warning flushes the checkpoint")
+        let subscription = engine.$savedAt.compactMap { $0 }.prefix(1).sink { _ in checkpointed.fulfill() }
+        NotificationCenter.default.post(name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
+        await fulfillment(of: [checkpointed], timeout: 5)
+        XCTAssertEqual(engine.phase, .capturing)
+        subscription.cancel()
+        engine.phase = .ready
+    }
+
+    func testOnlyLowStorageTriggersTheDiskReserve() throws {
+        XCTAssertNoThrow(try CaptureEngine.checkRemainingStorage(150_000_001))
+        XCTAssertNoThrow(try CaptureEngine.checkRemainingStorage(Int64.max))
+        for bytes: Int64 in [150_000_000, 0, -1] {
+            XCTAssertThrowsError(try CaptureEngine.checkRemainingStorage(bytes)) { error in
+                XCTAssertTrue(error.localizedDescription.contains("Saved capture data is retained"))
+            }
+        }
+    }
+
+    func testZIP64DirectoryPreservesLargeOffsetsAndEntryCounts() {
+        let offset = UInt64(UInt32.max) + 1234, size = UInt64(UInt32.max) + 5678
+        let end = ZipArchive.directoryEnd(entryCount: 70_000, size: size, offset: offset, zip64: true)
+        func u64(_ index: Int) -> UInt64 {
+            end.withUnsafeBytes { UInt64(littleEndian: $0.loadUnaligned(fromByteOffset: index, as: UInt64.self)) }
+        }
+        XCTAssertEqual(end.count, 98)
+        XCTAssertEqual(Array(end.prefix(4)), [0x50, 0x4b, 0x06, 0x06])
+        XCTAssertEqual(u64(24), 70_000)
+        XCTAssertEqual(u64(32), 70_000)
+        XCTAssertEqual(u64(40), size)
+        XCTAssertEqual(u64(48), offset)
+        XCTAssertEqual(u64(64), offset + size)
+        XCTAssertEqual(Array(end.suffix(22).prefix(4)), [0x50, 0x4b, 0x05, 0x06])
+        XCTAssertEqual(Array(end.suffix(14).prefix(4)), [0xff, 0xff, 0xff, 0xff])
+    }
+
     func testCoverageDoesNotMarkAnUnmeshedForegroundSurfaceAsCaptured() {
         XCTAssertEqual(CoverageFocus.classify(meshDepth: 3, measuredDepth: 1, tracking: true), .unscanned)
         XCTAssertEqual(CoverageFocus.classify(meshDepth: 1.05, measuredDepth: 1, tracking: true), .captured)

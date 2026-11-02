@@ -217,3 +217,37 @@ Run the helper tests from the repository root with Python 3.10+:
 ```sh
 python3 -m unittest discover -s skills/scanju-room-reconstruction/scripts -v
 ```
+
+## Continuous capture — November 2, 2026
+
+- Build 1.0 (2) removes the four-minute timer cutoff and app-imposed thermal and
+  memory-warning stops. Memory warnings flush point/checkpoint and image caches.
+  Disk capacity is checked every five seconds; capture stops at a 150 MB reserve
+  so saved source data can be checkpointed. Starting a scan still requires 600 MB.
+- If RoomPlan ends independently, detailed ARKit mesh/point/RGB-D capture continues
+  in the same coordinate system with the latest floor plan retained. Camera
+  interruptions and OS termination are still handled through saved checkpoints.
+- XcodeBuildMCP passed **25 tests, 0 failed, 0 skipped** on the iPhone 18 Pro
+  simulator running iOS 27.0. New regressions exercise a synthetic 24-hour clock
+  advance without stopping, a memory notification that checkpoints without stopping,
+  the low-storage boundary, and ZIP64 directory counts/offsets beyond classic limits.
+  Existing geometry, textures, recovery, point-cache eviction, and USDZ tests pass.
+- An independent macOS format check created a ZIP containing a **4,294,967,315-byte**
+  synthetic file followed by a second entry with an offset beyond 4 GiB. Python's
+  standard-library ZIP reader verified every CRC, the second entry, and the first
+  file's final bytes. The 4,294,967,670-byte archive and its disposable fixtures
+  were removed after verification. The private result receipt remains in Release/.
+- Complete ZIP exports now switch to ZIP64 as needed. USDZ remains classic ZIP
+  with stored, 64-byte-aligned entries; if its format limits are reached, original
+  data and other model formats remain available for export/recovery.
+- XcodeBuildMCP created the arm64 Release archive. The distribution IPA passed
+  local ZIP CRC, strict code-signature, version/bundle-ID, privacy-manifest, and
+  beta/debugger-entitlement checks. The distribution executable and retained dSYM
+  share UUID `22A89917-039B-3C97-B83C-5CDAF902E32A`.
+- This update did not install over or delete any phone scans. No new multi-minute
+  physical capture was performed. Simulator clock tests do not prove unlimited
+  real-device runtime: iOS can still interrupt the camera or terminate an app under
+  resource pressure, and processing/export require additional available storage.
+
+Result bundle: `test_sim_2026-11-02T06-15-22-249Z_pid81416_d72d22b5.xcresult`
+in the local XcodeBuildMCP workspace's `result-bundles` directory.

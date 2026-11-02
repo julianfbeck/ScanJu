@@ -68,7 +68,7 @@ enum ScanProcessor {
                 // Stream the original JPEGs into USDZ without decoding all camera
                 // textures into memory or relying on SceneKit's texture conversion.
                 try ZipArchive.create(at: output, root: directory,
-                    files: ["Mesh.usda"] + frames.map(\.image), alignment: 64) { report("Creating the portable 3D model", 0.74 + $0 * 0.13) }
+                    files: ["Mesh.usda"] + frames.map(\.image), alignment: 64, allowZIP64: false) { report("Creating the portable 3D model", 0.74 + $0 * 0.13) }
             } catch { warnings.append("Textured USDZ unavailable: \(error.localizedDescription). The OBJ is retained.") }
         }
 
@@ -309,7 +309,9 @@ enum ScanProcessor {
         Neutral triangles have no reliable camera observation. Texture coverage is in scan.json.
 
         Points are fused into disk-backed voxel tiles without a fixed point-count cap.
-        Recording stops after four minutes; storage, thermal and export format limits still apply.
+        Recording has no fixed duration limit. Low storage stops capture with saved data retained.
+        iOS camera interruptions and device resource limits can still affect recording.
+        Complete ZIP exports support ZIP64; USDZ retains its format limits.
         LiDAR does not recover unseen surfaces. Reflective/transparent objects and poor light
         can leave holes. A static ceiling capture is a partial surface, not a complete room.
         Floor plans are estimates. Verify dimensions before design or construction work.

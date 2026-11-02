@@ -79,7 +79,9 @@ and one-off apartment scripts do not belong in the published skill.
   `Finish saved scan` must process the saved capture without opening the camera.
   Do not delete checkpoints or source data when processing/export fails.
 - Keep expensive capture, recovery, and export work off the UI thread and publish
-  UI state safely. Preserve stage/percentage progress and resource-stop behavior.
+  UI state safely. Preserve stage/percentage progress, low-storage stops and recovery.
+  Do not reintroduce duration or app-imposed thermal/memory stops; flush caches on
+  memory warnings and let detailed capture continue if RoomPlan ends independently.
 - Coordinate units are meters in ARKit right-handed Y-up space; transforms are
   column-major. Raw depth is packed little-endian float32. Rear confidence is
   0/1/2, while TrueDepth exports a 0/1 valid-depth mask. Keep calibration and
@@ -93,7 +95,7 @@ and one-off apartment scripts do not belong in the published skill.
 ## Tests and device care
 
 Run the ScanJu test scheme after changing capture math, storage, recovery, preview,
-or export code. Its 22 tests cover projection/calibration, coverage, disk-backed
+or export code. Its tests cover projection/calibration, coverage, disk-backed
 points beyond the old cap, interruption recovery, deletion isolation, ZIP CRC and
 USDZ alignment/import, textures, and TrueDepth surface edges. Add a regression test
 when fixing one of these contracts; use isolated temporary scan directories.

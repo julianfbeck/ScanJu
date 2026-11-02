@@ -6,4 +6,4 @@ See captured surfaces in the live mesh overlay, inspect your result, and export 
 
 Interrupted captures save checkpoints: reopen ScanJu and choose Finish saved scan to process saved data without recording again.
 
-This is an early beta. Models may contain holes, texture seams, and tracking errors. Room dimensions are estimates. Capture stops after four minutes or when the device needs to cool down. Scans are stored locally; export important scans before deleting the app or its data.
+This is an early beta. Models may contain holes, texture seams, and tracking errors. Room dimensions are estimates. Capture has no fixed time limit. Low storage stops capture with saved data retained; iOS may still interrupt recording under device resource pressure. Scans are stored locally; export important scans before deleting the app or its data.

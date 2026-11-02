@@ -257,7 +257,7 @@ struct ScanningGuide: View {
                     Text("Complete + Detail is the default. It captures mesh, color points, high-resolution camera textures, and available room measurements together. There is no separate texture switch.")
                     Text("Detail uses an 8 mm fusion grid; Balanced uses 15 mm. These control point sampling, not LiDAR accuracy. Glass, mirrors, dark surfaces, and unobserved areas may leave gaps.")
                     Text("A stationary phone can capture the visible surface. A complete room and reliable textures require you to move around it.")
-                    Text("Points and camera images have no fixed count limit. Geometry is saved to disk throughout capture, and interrupted scans can be recovered here. Capture stops after four minutes or when the device needs to cool down. Room dimensions are estimates; check them before building work.")
+                    Text("Points and camera images have no fixed count limit. Geometry is saved to disk throughout capture, and interrupted scans can be recovered here. Capture has no time limit. It stops when device storage is nearly full, keeping saved data for recovery. iOS may still interrupt the camera. Room dimensions are estimates; check them before building work.")
                 }
                 Section("Your data") {
                     Text("Scans are processed locally. There is no account, upload, or cloud service. Export includes the mesh, images, native depth and confidence maps, camera calibration, and available floor plans.")
